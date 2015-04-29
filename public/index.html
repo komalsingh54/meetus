@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact List App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+
+<body ng-app="myapp">
+<br>
+<br>
+<div class="container col-md-8" ng-controller="AppCtrl">
+<div class="panel panel-primary">
+    <div class="panel-heading"><h2 class="panel-title">Contact List</h2></div>
+    <div class="panel-body">
+
+    <table class="table table-striped col-md-8">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="form-controll" ng-model="contact.name"> </td>
+            <td><input type="text" class="form-controll"  ng-model="contact.Email"> </td>
+            <td><input type="text" class="form-controll"  ng-model="contact.phone"> </td>
+            <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button> </td>
+            <td><button class="btn btn-info" ng-click="update()" >Update</button></td>
+            <td><button class="btn btn-info" ng-click="clear()">Clear</button> </td>
+        </tr>
+        <tr ng-repeat="contact in contactlist">
+            <td>{{contact.name}}</td>
+            <td>{{contact.Email}}</td>
+            <td>{{contact.phone}}</td>
+            <td><button class="btn btn-danger" ng-click="remove(contact._id)">Delete</button> </td>
+            <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button> </td>
+            <td>&nbsp;</td>
+        </tr>
+
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+
+</body>
+</html>
